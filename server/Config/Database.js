@@ -3,16 +3,16 @@ require("dotenv").config();
 
 const { MONGODB_URL } = process.env;
 
-exports.connect = () => {
-	mongoose
-		.connect(MONGODB_URL, {
-			useNewUrlparser: true,
-			useUnifiedTopology: true,
-		})
-		.then(console.log(`DB Connection Success`))
-		.catch((err) => {
-			console.log(`DB Connection Failed`);
-			console.log(err);
-			process.exit(1);
-		});
+exports.connect = async () => {
+  try {
+    await mongoose.connect(MONGODB_URL, {
+      useNewUrlParser: true, // ✅ Fixed Typo
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000, // ⏳ Timeout if DB is unresponsive
+    });
+    console.log("✅ DB Connection Success");
+  } catch (err) {
+    console.error("❌ DB Connection Failed:", err.message);
+    process.exit(1); // 🔴 Stop server if DB fails
+  }
 };
