@@ -92,7 +92,7 @@ const Footer = () => {
 
                   <li>
                     <a href="#" className="hover:underline">
-                      Refund Policy
+                      
                     </a>
                   </li>
                 </ul>
@@ -122,7 +122,7 @@ const Footer = () => {
               <h3 className="flex items-center">
                 <span className="mr-2"> <FaPhoneAlt /> </span>
                 Phone: 
-                <p className="mx-3 text-gray-400">+91 8547963258</p>
+                <p className="mx-3 text-gray-400">+91 7016135402</p>
               </h3>
             </div>
           </div>
